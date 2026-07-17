@@ -7,12 +7,17 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
-import CorporateBooking from './pages/CorporateBooking';
+import CorporateBooking from './pages/Corporates/CorporateBooking';
 import StudentsHub from './pages/StudentsHub';
 import ApartmentsHub from './pages/ApartmentsHub';
 import ActivityPage from './pages/ActivityPage';
-import CorporateSubPage from './pages/CorporateSubPage';
 import { STUDENT_ACTIVITIES, SCHOOL_EVENTS, COMMUNITY_ACTIVITIES, COMMUNITY_EVENTS } from './data';
+import HealthCamp from './pages/Corporates/HealthCamp';
+import CorporateDayOut from './pages/Corporates/CorporateDayOut';
+import CorporateEvents from './pages/Corporates/CorporateEvents';
+import CorporateStressBusters from './pages/Corporates/CorporateStressBusters';
+import CorporateGifting from './pages/Corporates/CorporateGifting';
+import Refreshments from './pages/Corporates/Refreshments';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -35,9 +40,16 @@ export default function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/corporates/corporate-booking" element={<CorporateBooking />} />
+          <Route path="/corporates/health-camp" element={<HealthCamp />} />
+          <Route path="/corporates/corporate-day-out" element={<CorporateDayOut />} />
+          <Route path="/corporates/corporate-events" element={<CorporateEvents />} />
+          <Route path="/corporates/corporate-stress-busters" element={<CorporateStressBusters />} />
+          <Route path="/corporates/corporate-gifting" element={<CorporateGifting />} />
+          <Route path="/corporates/refreshments" element={<Refreshments />} />
+
 
           {/* Corporate sub-pages */}
-          <Route path="/corporates/health-camp" element={
+          {/* <Route path="/corporates/health-camp" element={
             <CorporateSubPage title="Health Camp" subtitle="Comprehensive wellness health camps for your employees."
               imageUrl="https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=1600"
               description="Our Health Camp brings medical professionals, fitness experts, and wellness coaches directly to your office. Employees get free health check-ups, consultations, and personalized wellness plans."
@@ -72,7 +84,9 @@ export default function App() {
               imageUrl="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1600"
               description="From healthy snack platters to indulgent treats, our refreshment service keeps your team fueled and happy. Perfect for meetings, events, and day-outs."
               features={['Healthy snack platters', 'Fresh juice & smoothies', 'Tea & coffee stations', 'Custom menus', 'Dietary accommodations', 'On-time delivery']} />
-          } />
+          } /> */}
+
+
 
           {/* Student pages */}
           <Route path="/for-students" element={<StudentsHub />} />

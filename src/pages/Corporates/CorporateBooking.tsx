@@ -1,7 +1,7 @@
-import StandardPage from '../components/StandardPage';
-import { CORPORATE_ACTIVITIES, CORPORATE_STATS } from '../data';
+import StandardPage from '../../components/StandardPage';
+import { CORPORATE_ACTIVITIES, CORPORATE_STATS } from '../../data';
 import { CheckCircle, Calendar, Users, MapPin, Package } from 'lucide-react';
-import ContactForm from '../components/ContactForm';
+import ContactForm from '../../components/ContactForm';
 
 export default function CorporateBooking() {
   return (
