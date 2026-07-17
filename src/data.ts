@@ -89,21 +89,96 @@ export const GALLERY_IMAGES = [
 ];
 
 export const BLOG_POSTS = [
-  { title: '5 Ways to Reduce Workplace Stress', excerpt: 'Simple, effective strategies for a healthier office environment.', tag: 'Corporate' },
-  { title: 'The Science of Play in Education', excerpt: 'Why unstructured play matters more than ever in schools.', tag: 'Students' },
-  { title: 'Building Community Through Events', excerpt: 'How apartment communities are transforming with wellness activities.', tag: 'Community' },
-  { title: 'Zumba: More Than Just a Workout', excerpt: 'The mental health benefits of dance-based fitness.', tag: 'Wellness' },
-  { title: 'Mindfulness in the Boardroom', excerpt: 'Bringing meditation practices to corporate leadership.', tag: 'Corporate' },
-  { title: 'Kids & Yoga: A Natural Pairing', excerpt: 'Why children benefit enormously from early yoga practice.', tag: 'Students' },
-  { title: 'The Art of Corporate Gifting', excerpt: 'Thoughtful gifts that employees actually want.', tag: 'Corporate' },
-  { title: 'Community Sports Days Done Right', excerpt: 'Planning memorable community sports events.', tag: 'Community' },
-  { title: 'Creative Expression in Schools', excerpt: 'How mime and storytelling boost student confidence.', tag: 'Students' },
-  { title: 'Wellness Runs: A Community Affair', excerpt: 'Organizing impactful community wellness runs.', tag: 'Community' },
-  { title: 'Festive Events That Bring People Together', excerpt: 'Celebrating diversity through community festivals.', tag: 'Community' },
-  { title: 'The ROI of Employee Wellness', excerpt: 'Measuring the business impact of wellness programs.', tag: 'Corporate' },
-  { title: 'School Annual Days Reimagined', excerpt: 'Modern approaches to traditional school celebrations.', tag: 'Students' },
-  { title: 'Karaoke Nights for Team Bonding', excerpt: 'Why singing together builds stronger teams.', tag: 'Corporate' },
-  { title: 'Outdoor Adventures for Urban Kids', excerpt: 'Reconnecting children with nature through structured activities.', tag: 'Students' },
+  {
+    tag: "#CORPORATEWELLNESS",
+    title: "How JSB Is Changing the Way Companies Think About Employee Wellness",
+    excerpt: "How JSB Is Changing the Way Companies Think About Employee Wellness For years, corporate wellness meant long talks, serious presentations,",
+    date: "December 16, 2025",
+  },
+  {
+    tag: "BREATHING EXERCISES AT WORK",
+    title: "From Desk to De-Stress: 5 Quick Hacks to Refresh Your Workday",
+    excerpt: "From Desk to De-Stress: 5 Quick Hacks to Refresh Your Workday Long hours at a desk can drain energy, reduce",
+    date: "December 15, 2025",
+  },
+  {
+    tag: "CORPORATE EVENTS",
+    title: "Why Creative Play Is the Most Underrated Stress Buster for Adults",
+    excerpt: "Why Creative Play Is the Most Underrated Stress Buster for Adults As children, being creative comes naturally — we draw,",
+    date: "December 1, 2025",
+  },
+  {
+    tag: "CORPORATE WELLNESS",
+    title: "Best Corporate Day Out Activities in India | Just Stress Busters",
+    excerpt: "Why Just Stress Busters Is the Perfect Partner for Your Corporate Day Out Plan a fun, stress-free corporate day out",
+    date: "November 28, 2025",
+  },
+  {
+    tag: "BANGALORE WELLNESS EVENTS",
+    title: "The Science of Stress",
+    excerpt: "How Simple Play Can Reboot Your Mind Discover how playful activities and movement-based games can lower stress hormones, enhance mood,",
+    date: "November 11, 2025",
+  },
+  {
+    tag: "DESK YOGA",
+    title: "The Silent Crisis: Suicides, Stress & Mental Health in India's Corporate Culture",
+    excerpt: "Introduction Behind the glittering towers of India’s corporate hubs lies a growing crisis — employee burnout, mental health breakdowns, and",
+    date: "June 27, 2025",
+  },
+  {
+    tag: "CORPORATE WELLNESS",
+    title: "How Laughter and Play Can Revitalize Your Office: The Magic of Pranks and Games",
+    excerpt: "In the fast-paced world of corporate life, stress has become an inevitable part of the equation. Deadlines loom, meetings pile",
+    date: "December 25, 2024",
+  },
+  {
+    tag: "YOGA",
+    title: "Why choose Yoga?",
+    excerpt: "In a world bustling with constant activity, stress, and distractions, yoga stands as a beacon of tranquility and holistic well-being.",
+    date: "November 14, 2024",
+  },
+  {
+    tag: "ZUMBA",
+    title: "Zumba and its benefits",
+    excerpt: "Why Zumba is a great alternative to traditional fitness programs: Ready to try it? Start with these three simple moves.",
+    date: "November 14, 2024",
+  },
+  {
+    tag: "HEALTH CHECK-UP",
+    title: "Importance of Health Check-Up",
+    excerpt: "In the fast-paced corporate world, where deadlines and targets often take center stage, the well-being of employees is a critical",
+    date: "November 14, 2024",
+  },
+  {
+    tag: "MARATHON",
+    title: "JSB's Epic Marathon Journey with Subex",
+    excerpt: "Hey there, fitness enthusiasts! We’re thrilled to share the incredible journey we embarked on with Subex, a dynamic corporation committed",
+    date: "November 14, 2024",
+  },
+  {
+    tag: "FITNESS CHALLENGES",
+    title: "Energizing the journey: Pre-Marathon Fitness Challenges by JSB with Subex",
+    excerpt: "As the countdown to the Subex Marathon began, the excitement in the air was palpable. At JSB, we believe in",
+    date: "November 14, 2024",
+  },
+  {
+    tag: "STRESS BUSTER ACTIVITIES",
+    title: "10 Effective Stress Buster Activities for the Workplace",
+    excerpt: "In today’s fast-paced corporate world, where deadlines loom and expectations run high, managing stress has become a critical aspect of",
+    date: "November 14, 2024",
+  },
+  {
+    tag: "CORPORATE EVENTS",
+    title: "Celebrating Creativity and Dreams at Springwood Academy: A Day of Fun and Inspiration",
+    excerpt: "At Just Stress Buster (JSB), we recently had the pleasure of organizing a vibrant Music Carnival for Springwood Academy, a",
+    date: "November 14, 2024",
+  },
+  {
+    tag: "HEART HEALTH",
+    title: "Inactivity in the Workplace: A Silent Heart Health Threat",
+    excerpt: "In India’s fast-paced corporate world, employees often find themselves glued to their desks for hours, leading to an alarming rise",
+    date: "November 14, 2024",
+  },
 ];
 
 export const CORPORATE_ACTIVITIES = [
