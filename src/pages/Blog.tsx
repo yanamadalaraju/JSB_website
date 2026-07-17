@@ -35,7 +35,12 @@ export default function Blog() {
               </h3>
               <p className="text-sm text-gray-400 leading-relaxed mb-3">{post.excerpt}</p>
               <div className="flex items-center gap-1 text-xs text-accent-from font-mono">
-                Read more <ArrowRight size={12} />
+                Explore More <ArrowRight size={12} />
+              </div>
+              <div className="flex items-center gap-1.5 text-xs text-gray-500 font-mono mt-4 pt-3 border-t border-white/10">
+                <span>Just Stress Busters</span>
+                <span>•</span>
+                <span>{post.date}</span>
               </div>
             </div>
           </Link>
