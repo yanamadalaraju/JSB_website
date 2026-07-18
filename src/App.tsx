@@ -18,6 +18,7 @@ import CorporateEvents from './pages/Corporates/CorporateEvents';
 import CorporateStressBusters from './pages/Corporates/CorporateStressBusters';
 import CorporateGifting from './pages/Corporates/CorporateGifting';
 import Refreshments from './pages/Corporates/Refreshments';
+import Corporatespage from './pages/Corporates/CorporatesPage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -46,6 +47,7 @@ export default function App() {
           <Route path="/corporates/corporate-stress-busters" element={<CorporateStressBusters />} />
           <Route path="/corporates/corporate-gifting" element={<CorporateGifting />} />
           <Route path="/corporates/refreshments" element={<Refreshments />} />
+         
 
 
           {/* Corporate sub-pages */}
