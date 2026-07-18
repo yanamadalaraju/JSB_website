@@ -233,3 +233,103 @@ export const CONTACT_INFO = {
   email2: 'priya@jsbteam.com',
   address: '14, 1st Floor, AMS Layout, Jelly Machine Circle, Vidyaranyapura, Bengaluru, Karnataka 560097',
 };
+
+
+export const PRODUCTS = [
+  {
+    id: 1,
+    name: 'Premium Festive Hamper',
+    price: 2499,
+    category: 'Hampers',
+    image:
+      'https://images.pexels.com/photos/6214476/pexels-photo-6214476.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 2,
+    name: 'Luxury Dry Fruit Box',
+    price: 1999,
+    category: 'Hampers',
+    image:
+      'https://images.pexels.com/photos/5946973/pexels-photo-5946973.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 3,
+    name: 'Classic Sweet Box',
+    price: 799,
+    category: 'Sweets',
+    image:
+      'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 4,
+    name: 'Assorted Mithai Pack',
+    price: 999,
+    category: 'Sweets',
+    image:
+      'https://images.pexels.com/photos/541216/pexels-photo-541216.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 5,
+    name: 'Wellness Kit Deluxe',
+    price: 1499,
+    category: 'Wellness',
+    image:
+      'https://images.pexels.com/photos/4050291/pexels-photo-4050291.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 6,
+    name: 'Relaxation Gift Set',
+    price: 1299,
+    category: 'Wellness',
+    image:
+      'https://images.pexels.com/photos/6621463/pexels-photo-6621463.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 7,
+    name: 'Healthy Snack Box',
+    price: 699,
+    category: 'Snacks',
+    image:
+      'https://images.pexels.com/photos/669727/pexels-photo-669727.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 8,
+    name: 'Crunchy Treat Pack',
+    price: 899,
+    category: 'Snacks',
+    image:
+      'https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 9,
+    name: 'Executive Gift Hamper',
+    price: 2999,
+    category: 'Hampers',
+    image:
+      'https://images.pexels.com/photos/7045545/pexels-photo-7045545.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 10,
+    name: 'Organic Wellness Combo',
+    price: 1799,
+    category: 'Wellness',
+    image:
+      'https://images.pexels.com/photos/6621462/pexels-photo-6621462.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 11,
+    name: 'Premium Chocolate Box',
+    price: 1199,
+    category: 'Sweets',
+    image:
+      'https://images.pexels.com/photos/918327/pexels-photo-918327.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 12,
+    name: 'Snack Delight Hamper',
+    price: 1399,
+    category: 'Snacks',
+    image:
+      'https://images.pexels.com/photos/669726/pexels-photo-669726.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+];

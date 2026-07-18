@@ -1,77 +1,160 @@
-import StandardPage from '../../components/StandardPage';
-import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+// import StandardPage from '../../components/StandardPage';
+// import { Link } from 'react-router-dom';
+// import { ArrowRight, CheckCircle } from 'lucide-react';
 
-const CorporateGifting = () => {
+// const CorporateGifting = () => {
+//   return (
+//     <StandardPage
+//       eyebrow="Corporates"
+//       title="Corporate Gifting"
+//       subtitle="Thoughtful, personalized gifts that employees actually love."
+//     >
+//       {/* Image */}
+//       <div className="rounded-3xl overflow-hidden h-64 md:h-80 mb-16 relative">
+//         <img
+//           src="https://images.pexels.com/photos/6214476/pexels-photo-6214476.jpeg"
+//           alt="Corporate Gifting"
+//           className="w-full h-full object-cover"
+//         />
+//         <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/30 to-transparent" />
+//       </div>
+
+//       {/* Overview + Features */}
+//       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
+//         <div>
+//           <div className="eyebrow mb-3">Overview</div>
+//           <p className="text-gray-300 leading-relaxed text-lg mb-6">
+//             Curated gift hampers for every occasion — Diwali, New Year, employee
+//             milestones. Sweet boxes, snack hampers, and wellness kits personalized
+//             with your company branding.
+//           </p>
+
+//           <Link to="/corporates/corporate-booking" className="btn-pill btn-pill-gradient">
+//             Book Now <ArrowRight size={14} />
+//           </Link>
+//         </div>
+
+//         <div>
+//           <div className="eyebrow mb-3">What's included</div>
+//           <ul className="space-y-3">
+//             {[
+//               'Personalized branding',
+//               'Festive hampers',
+//               'Wellness kits',
+//               'Sweet & snack boxes',
+//               'Custom packaging',
+//               'Bulk ordering',
+//             ].map((item, i) => (
+//               <li key={i} className="flex items-start gap-2 text-gray-300">
+//                 <CheckCircle size={18} className="text-accent-from mt-0.5" />
+//                 {item}
+//               </li>
+//             ))}
+//           </ul>
+//         </div>
+//       </div>
+
+//       {/* Stats */}
+//       <div className="glass rounded-3xl p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+//         {[
+//           { label: 'Gifts Delivered', value: '10K+' },
+//           { label: 'Companies Served', value: '30+' },
+//           { label: 'Gift Options', value: '100+' },
+//           { label: 'Cities', value: '5+' },
+//         ].map((s) => (
+//           <div key={s.label}>
+//             <div className="font-display font-bold gradient-text text-3xl md:text-4xl">
+//               {s.value}
+//             </div>
+//             <div className="eyebrow mt-1">{s.label}</div>
+//           </div>
+//         ))}
+//       </div>
+//     </StandardPage>
+//   );
+// };
+
+// export default CorporateGifting;
+
+
+import { useState } from 'react';
+import StandardPage from '../../components/StandardPage';
+import CatalogLayout from '../../components/CatalogLayout';
+import CategoryFilter from '../../components/CategoryFilter';
+import PriceFilter from '../../components/PriceFilter';
+import ProductCard from '../../components/ProductCard';
+import { PRODUCTS } from '../../data';
+
+const categories = ['All', 'Hampers', 'Sweets', 'Wellness', 'Snacks'];
+
+export default function CorporateGiftingCatalog() {
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [priceRange, setPriceRange] = useState({ min: 0, max: 10000 });
+
+  const filteredProducts = PRODUCTS.filter((p) => {
+    const categoryMatch =
+      selectedCategory === 'All' || p.category === selectedCategory;
+
+    const priceMatch =
+      p.price >= priceRange.min && p.price <= priceRange.max;
+
+    return categoryMatch && priceMatch;
+  });
+
   return (
     <StandardPage
       eyebrow="Corporates"
-      title="Corporate Gifting"
-      subtitle="Thoughtful, personalized gifts that employees actually love."
+      title="Corporate Gifting Catalog"
+      subtitle="Explore premium gifting options curated for your employees."
     >
-      {/* Image */}
+      {/* Hero */}
       <div className="rounded-3xl overflow-hidden h-64 md:h-80 mb-16 relative">
         <img
           src="https://images.pexels.com/photos/6214476/pexels-photo-6214476.jpeg"
-          alt="Corporate Gifting"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-transparent" />
       </div>
 
-      {/* Overview + Features */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
-        <div>
-          <div className="eyebrow mb-3">Overview</div>
-          <p className="text-gray-300 leading-relaxed text-lg mb-6">
-            Curated gift hampers for every occasion — Diwali, New Year, employee
-            milestones. Sweet boxes, snack hampers, and wellness kits personalized
-            with your company branding.
-          </p>
+      {/* Layout */}
+      <CatalogLayout
+        sidebar={
+          <>
+            <CategoryFilter
+              categories={categories}
+              selected={selectedCategory}
+              onSelect={setSelectedCategory}
+            />
 
-          <Link to="/corporates/corporate-booking" className="btn-pill btn-pill-gradient">
-            Book Now <ArrowRight size={14} />
-          </Link>
+            <PriceFilter
+              min={priceRange.min}
+              max={priceRange.max}
+              onChange={(min, max) => setPriceRange({ min, max })}
+            />
+          </>
+        }
+      >
+        {/* Header */}
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-white font-semibold text-xl">
+            Products ({filteredProducts.length})
+          </h2>
         </div>
 
-        <div>
-          <div className="eyebrow mb-3">What's included</div>
-          <ul className="space-y-3">
-            {[
-              'Personalized branding',
-              'Festive hampers',
-              'Wellness kits',
-              'Sweet & snack boxes',
-              'Custom packaging',
-              'Bulk ordering',
-            ].map((item, i) => (
-              <li key={i} className="flex items-start gap-2 text-gray-300">
-                <CheckCircle size={18} className="text-accent-from mt-0.5" />
-                {item}
-              </li>
-            ))}
-          </ul>
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
         </div>
-      </div>
 
-      {/* Stats */}
-      <div className="glass rounded-3xl p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-        {[
-          { label: 'Gifts Delivered', value: '10K+' },
-          { label: 'Companies Served', value: '30+' },
-          { label: 'Gift Options', value: '100+' },
-          { label: 'Cities', value: '5+' },
-        ].map((s) => (
-          <div key={s.label}>
-            <div className="font-display font-bold gradient-text text-3xl md:text-4xl">
-              {s.value}
-            </div>
-            <div className="eyebrow mt-1">{s.label}</div>
+        {/* Empty State */}
+        {filteredProducts.length === 0 && (
+          <div className="text-center text-gray-400 mt-20">
+            No products found
           </div>
-        ))}
-      </div>
+        )}
+      </CatalogLayout>
     </StandardPage>
   );
-};
-
-export default CorporateGifting;
+}

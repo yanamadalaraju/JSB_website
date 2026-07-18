@@ -10,14 +10,16 @@ import Contact from './pages/Contact';
 import CorporateBooking from './pages/Corporates/CorporateBooking';
 import StudentsHub from './pages/StudentsHub';
 import ApartmentsHub from './pages/ApartmentsHub';
-import ActivityPage from './pages/ActivityPage';
-import { STUDENT_ACTIVITIES, SCHOOL_EVENTS, COMMUNITY_ACTIVITIES, COMMUNITY_EVENTS } from './data';
 import HealthCamp from './pages/Corporates/HealthCamp';
 import CorporateDayOut from './pages/Corporates/CorporateDayOut';
 import CorporateEvents from './pages/Corporates/CorporateEvents';
 import CorporateStressBusters from './pages/Corporates/CorporateStressBusters';
 import CorporateGifting from './pages/Corporates/CorporateGifting';
 import Refreshments from './pages/Corporates/Refreshments';
+import StudentStressBusters from './pages/Students/StudentStressBusters';
+import SchoolEvents from './pages/Students/SchoolEvents';
+import CommunityStressBusters from './pages/Communities/CommunityStressBusters';
+import CommunityEvents from './pages/Communities/CommunityEvents';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -90,7 +92,10 @@ export default function App() {
 
           {/* Student pages */}
           <Route path="/for-students" element={<StudentsHub />} />
-          <Route path="/for-students/student-stress-busters" element={
+          <Route path="/for-students/student-stress-busters" element={<StudentStressBusters />} />
+          <Route path="/for-students/school-events" element={<SchoolEvents />} />
+
+          {/* <Route path="/for-students/student-stress-busters" element={
             <ActivityPage eyebrow="For Students" title="Stress Buster For Students" subtitle="Six fun activities that help students unwind, express themselves, and smile."
               imageUrl="https://images.pexels.com/photos/8434631/pexels-photo-8434631.jpeg?auto=compress&cs=tinysrgb&w=1600"
               items={STUDENT_ACTIVITIES} />
@@ -99,11 +104,13 @@ export default function App() {
             <ActivityPage eyebrow="For Students" title="School Events" subtitle="Full-scale school events managed end-to-end by JSB."
               imageUrl="https://images.pexels.com/photos/8434639/pexels-photo-8434639.jpeg?auto=compress&cs=tinysrgb&w=1600"
               items={SCHOOL_EVENTS} />
-          } />
+          } /> */}
 
           {/* Apartment pages */}
           <Route path="/for-apartments" element={<ApartmentsHub />} />
-          <Route path="/for-apartments/stress-buster-activities-for-community" element={
+          <Route path="/for-apartments/stress-buster-activities-for-community" element={<CommunityStressBusters />} />
+          <Route path="/for-apartments/community-events" element={<CommunityEvents />} />
+          {/* <Route path="/for-apartments/stress-buster-activities-for-community" element={
             <ActivityPage eyebrow="For Apartments" title="Stress Buster Activities For Community" subtitle="Six wellness activities that bring your apartment community together."
               imageUrl="https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1600"
               items={COMMUNITY_ACTIVITIES} />
@@ -112,7 +119,9 @@ export default function App() {
             <ActivityPage eyebrow="For Apartments" title="Community Events" subtitle="Full-scale community events that create lasting memories."
               imageUrl="https://images.pexels.com/photos/7045545/pexels-photo-7045545.jpeg?auto=compress&cs=tinysrgb&w=1600"
               items={COMMUNITY_EVENTS} />
-          } />
+          } /> */}
+
+
         </Routes>
       </main>
       <Footer />

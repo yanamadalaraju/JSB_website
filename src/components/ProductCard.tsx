@@ -7,18 +7,30 @@ interface Product {
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
-    <div className="glass rounded-xl overflow-hidden hover:scale-[1.02] transition">
-      <img
-        src={product.image}
-        alt={product.name}
-        className="h-40 w-full object-cover"
-      />
+    <div className="group glass rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
+      {/* Image */}
+      <div className="relative overflow-hidden">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="h-48 w-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
 
-      <div className="p-4">
-        <h4 className="text-white font-semibold text-sm">{product.name}</h4>
-        <p className="text-accent-from font-bold mt-1">₹{product.price}</p>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition" />
+      </div>
 
-        <button className="mt-3 w-full btn-pill btn-pill-gradient text-sm">
+      {/* Content */}
+      <div className="p-5">
+        <h4 className="text-white font-semibold text-sm mb-1">
+          {product.name}
+        </h4>
+
+        <p className="text-accent-from font-bold text-lg">
+          ₹{product.price}
+        </p>
+
+        <button className="mt-4 w-full btn-pill btn-pill-gradient text-sm opacity-0 group-hover:opacity-100 transition">
           View Details
         </button>
       </div>
