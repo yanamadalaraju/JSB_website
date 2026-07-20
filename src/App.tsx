@@ -17,6 +17,7 @@ import CorporateEvents from './pages/Corporates/CorporateEvents';
 import CorporateStressBusters from './pages/Corporates/CorporateStressBusters';
 import CorporateGifting from './pages/Corporates/CorporateGifting';
 import Refreshments from './pages/Corporates/Refreshments';
+import Corporatespage from './pages/Corporates/CorporatesPage';
 import StudentStressBusters from './pages/Students/StudentStressBusters';
 import SchoolEvents from './pages/Students/SchoolEvents';
 import CommunityStressBusters from './pages/Communities/CommunityStressBusters';
@@ -66,6 +67,8 @@ function AppRoutes() {
       <Route path="/corporates/corporate-stress-busters" element={<CorporateStressBusters />} />
       <Route path="/corporates/corporate-gifting" element={<CorporateGifting />} />
       <Route path="/corporates/refreshments" element={<Refreshments />} />
+   
+<Route path="/services/corporates" element={<Corporatespage />} />
 
       {/* Student pages */}
       <Route path="/for-students" element={<StudentsHub />} />

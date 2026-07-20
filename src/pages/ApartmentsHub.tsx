@@ -2,6 +2,9 @@ import StandardPage from '../components/StandardPage';
 import { Link } from 'react-router-dom';
 import { SERVICES_TREE } from '../data';
 import { ArrowRight } from 'lucide-react';
+import Studentshero from '../components/StudentsHubcombo/studentshero';
+import StressBustersLanding from '../components/StudentsHubcombo/StudentServices';
+import Apartmenthero from '../components/StudentsHubcombo/apartmenthero';
 
 export default function ApartmentsHub() {
   const items = SERVICES_TREE['For Apartments'].items;
@@ -11,6 +14,10 @@ export default function ApartmentsHub() {
       title="Community Wellness"
       subtitle="Bringing neighbors together with wellness activities and unforgettable community events."
     >
+      <Apartmenthero />
+      
+      <StressBustersLanding />
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
         {items.map((item, i) => (
           <Link

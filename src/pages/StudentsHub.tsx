@@ -2,6 +2,9 @@ import StandardPage from '../components/StandardPage';
 import { Link } from 'react-router-dom';
 import { SERVICES_TREE } from '../data';
 import { ArrowRight } from 'lucide-react';
+import Studentshero from '../components/StudentsHubcombo/studentshero';
+import StudentServices from '../components/StudentsHubcombo/StudentServices';
+import StressBustersLanding from '../components/StudentsHubcombo/StudentServices';
 
 export default function StudentsHub() {
   const items = SERVICES_TREE['For Students'].items;
@@ -11,6 +14,10 @@ export default function StudentsHub() {
       title="Student Wellness"
       subtitle="Bringing joy, energy, and stress-busting activities to schools and educational institutions."
     >
+      <Studentshero />
+
+      <StressBustersLanding />
+      
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
         {items.map((item, i) => (
           <Link

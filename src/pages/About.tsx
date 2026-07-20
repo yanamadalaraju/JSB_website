@@ -113,11 +113,8 @@
 
 
 import AboutSection from "../components/AboutCompo/aboutdetails";
-import Aboutdetails from "../components/AboutCompo/aboutdetails";
 import AboutHero from "../components/AboutCompo/AboutHero";
-import ClientMarquee from "../components/AboutCompo/ClientMarquee";
 import GoogleReviewsSection from "../components/AboutCompo/GoogleReviewsSection";
-import HeroSection from "../components/AboutCompo/HeroSection";
 import JoinCTA from "../components/AboutCompo/JoinCTA";
 import MissionVision from "../components/AboutCompo/MissionVision";
 import OurClients from "../components/AboutCompo/OurClients";
