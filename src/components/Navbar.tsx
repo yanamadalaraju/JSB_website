@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Facebook, Instagram, Youtube, Linkedin, MessageCircle, Mail, Phone } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Menu, X, ChevronDown, Facebook, Instagram, Youtube, Linkedin, MessageCircle, Mail, Phone, Bell, LogOut } from 'lucide-react';
 import { NAV_LINKS, SERVICES_TREE, CONTACT_INFO } from '../data';
+import { useAuth } from '../context/AuthContext';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -9,6 +10,10 @@ export default function Navbar() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const { user, logout } = useAuth();
+
+  const isAdmin = user?.role === 'admin';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -20,6 +25,11 @@ export default function Navbar() {
     setMobileOpen(false);
     setServicesOpen(false);
   }, [location.pathname]);
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
 
   return (
     <>
@@ -60,87 +70,118 @@ export default function Navbar() {
               </span>
             </Link>
 
-            {/* Desktop nav */}
-            <div className="hidden lg:flex items-center gap-1">
-              {NAV_LINKS.map((link) =>
-                link.dropdown ? (
-                  <div
-                    key={link.label}
-                    className="relative"
-                    onMouseEnter={() => setServicesOpen(true)}
-                    onMouseLeave={() => setServicesOpen(false)}
-                  >
+            {/* Desktop nav — hidden entirely for admin */}
+            {!isAdmin && (
+              <div className="hidden lg:flex items-center gap-1">
+                {NAV_LINKS.map((link) =>
+                  link.dropdown ? (
+                    <div
+                      key={link.label}
+                      className="relative"
+                      onMouseEnter={() => setServicesOpen(true)}
+                      onMouseLeave={() => setServicesOpen(false)}
+                    >
+                      <Link
+                        to={link.path}
+                        className={`flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                          location.pathname.startsWith('/services') || location.pathname.startsWith('/corporates') || location.pathname.startsWith('/for-')
+                            ? 'text-accent-from'
+                            : 'text-gray-300 hover:text-white'
+                        }`}
+                      >
+                        {link.label}
+                        <ChevronDown size={14} className={`transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+                      </Link>
+
+                      {/* Dropdown */}
+                      {servicesOpen && (
+                        <div className="absolute top-full left-0 pt-2 w-[520px]">
+                          <div className="glass-strong rounded-2xl p-4 grid grid-cols-3 gap-4 shadow-2xl">
+                            {Object.entries(SERVICES_TREE).map(([cat, data]) => (
+                              <div key={cat}>
+                                <Link to={data.path} className="eyebrow block mb-2 hover:text-white transition-colors">
+                                  {cat}
+                                </Link>
+                                <ul className="space-y-1.5">
+                                  {data.items.map((item) => (
+                                    <li key={item.path}>
+                                      <Link
+                                        to={item.path}
+                                        className="text-xs text-gray-400 hover:text-accent-from transition-colors block"
+                                      >
+                                        {item.label}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
                     <Link
+                      key={link.label}
                       to={link.path}
-                      className={`flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                        location.pathname.startsWith('/services') || location.pathname.startsWith('/corporates') || location.pathname.startsWith('/for-')
-                          ? 'text-accent-from'
-                          : 'text-gray-300 hover:text-white'
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                        location.pathname === link.path ? 'text-accent-from' : 'text-gray-300 hover:text-white'
                       }`}
                     >
                       {link.label}
-                      <ChevronDown size={14} className={`transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
                     </Link>
-
-                    {/* Dropdown */}
-                    {servicesOpen && (
-                      <div className="absolute top-full left-0 pt-2 w-[520px]">
-                        <div className="glass-strong rounded-2xl p-4 grid grid-cols-3 gap-4 shadow-2xl">
-                          {Object.entries(SERVICES_TREE).map(([cat, data]) => (
-                            <div key={cat}>
-                              <Link to={data.path} className="eyebrow block mb-2 hover:text-white transition-colors">
-                                {cat}
-                              </Link>
-                              <ul className="space-y-1.5">
-                                {data.items.map((item) => (
-                                  <li key={item.path}>
-                                    <Link
-                                      to={item.path}
-                                      className="text-xs text-gray-400 hover:text-accent-from transition-colors block"
-                                    >
-                                      {item.label}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <Link
-                    key={link.label}
-                    to={link.path}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                      location.pathname === link.path ? 'text-accent-from' : 'text-gray-300 hover:text-white'
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                )
-              )}
-            </div>
+                  )
+                )}
+              </div>
+            )}
 
             {/* CTA + mobile toggle */}
             <div className="flex items-center gap-2">
-              <Link to="/contact" className="btn-pill btn-pill-gradient hidden md:inline-flex !py-2 !px-5 !text-[0.72rem]">
-                Book Now
-              </Link>
-              <button
-                onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden w-10 h-10 rounded-full glass flex items-center justify-center text-white"
-              >
-                {mobileOpen ? <X size={18} /> : <Menu size={18} />}
-              </button>
+              {/* Book Now — hidden for admin */}
+              {!isAdmin && (
+                <Link to="/contact" className="btn-pill btn-pill-gradient hidden md:inline-flex !py-2 !px-5 !text-[0.72rem]">
+                  Book Now
+                </Link>
+              )}
+
+              {/* Notifications — admin only */}
+              {isAdmin && (
+                <Link
+                  to="/admin/notifications"
+                  aria-label="Notifications"
+                  className="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:text-accent-from transition-colors"
+                >
+                  <Bell size={18} />
+                </Link>
+              )}
+
+              {/* Logout — shown for any logged-in user, at the edge of the navbar */}
+              {user && (
+                <button
+                  onClick={handleLogout}
+                  className="btn-pill !py-2 !px-4 !text-[0.72rem] bg-white/10 text-white hover:bg-white/20 transition-colors flex items-center gap-1.5"
+                >
+                  <LogOut size={14} />
+                  <span className="hidden sm:inline">Logout</span>
+                </button>
+              )}
+
+              {/* Mobile hamburger — hidden entirely for admin */}
+              {!isAdmin && (
+                <button
+                  onClick={() => setMobileOpen(!mobileOpen)}
+                  className="lg:hidden w-10 h-10 rounded-full glass flex items-center justify-center text-white"
+                >
+                  {mobileOpen ? <X size={18} /> : <Menu size={18} />}
+                </button>
+              )}
             </div>
           </div>
         </div>
       </nav>
 
       {/* Mobile menu */}
-      {mobileOpen && (
+      {mobileOpen && !isAdmin && (
         <div className="fixed inset-0 z-40 lg:hidden">
           <div className="absolute inset-0 bg-bg/80 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
           <div className="absolute top-20 left-4 right-4 glass-strong rounded-3xl p-6 max-h-[80vh] overflow-y-auto">
